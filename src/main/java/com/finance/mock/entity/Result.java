@@ -31,7 +31,6 @@ public class Result<T> {
     public Result() {
     }
 
-
     /**
       *
       * @Description:
