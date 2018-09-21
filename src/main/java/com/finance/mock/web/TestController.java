@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/test")
 public class TestController {
     /**
-      *
       * @Description:
       * @auther: 快乐水 零度可乐
       * @date: 16:47 2018/9/20 
@@ -27,7 +26,6 @@ public class TestController {
         System.out.println(id);
         return id;
     }
-
 
     /**
       *
@@ -43,6 +41,4 @@ public class TestController {
     public User User(@RequestBody User user){
         return user;
     }
-
-
 }
