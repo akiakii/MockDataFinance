@@ -1,7 +1,10 @@
 package com.finance.mock.entity;
 
 import java.math.BigDecimal;
+<<<<<<< HEAD
 import java.util.List;
+=======
+>>>>>>> upstream/master
 
 public class User {
     private long id;
@@ -25,6 +28,7 @@ public class User {
     private long createdAt;
     private long updatedAt;
 
+    private List<Bank> bankList;
 
     @Override
     public String toString() {
@@ -44,7 +48,8 @@ public class User {
                 ", picture='" + picture + '\'' +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
-                '}'+"\n";
+                ", bankList=" + bankList +
+                '}';
     }
 
     public long getId() {
@@ -166,4 +171,13 @@ public class User {
     public void setUpdatedAt(long updatedAt) {
         this.updatedAt = updatedAt;
     }
+
+    public List<Bank> getBankList() {
+        return bankList;
+    }
+
+    public void setBankList(List<Bank> bankList) {
+        this.bankList = bankList;
+    }
 }
+
