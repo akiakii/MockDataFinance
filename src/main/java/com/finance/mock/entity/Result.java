@@ -31,6 +31,11 @@ public class Result<T> {
     public Result() {
     }
 
+    public Result(boolean status, String Msg) {
+        this.status = status;
+        this.msg = Msg;
+    }
+
     /**
       *
       * @Description:
