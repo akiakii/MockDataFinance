@@ -1,5 +1,7 @@
 package com.finance.mock.entity;
 
+import java.util.List;
+
 /**
  * @Author: 快乐水 樱桃可乐
  * @Description:
@@ -11,12 +13,13 @@ public class Module {
     private String serialId;
     private String moduleName;
     private String moduleUrl;
-    private String fatherModule;
+    private long fatherModuleId;
     private String moduleType;
-    private long createId;
-    private String updateName;
+    private String createdBy;
+    private String updatedBy;
     private long createAt;
     private long updateAt;
+    private List<Module> modules;
 
     public long getId() {
         return id;
@@ -50,12 +53,12 @@ public class Module {
         this.moduleUrl = moduleUrl;
     }
 
-    public String getFatherModule() {
-        return fatherModule;
+    public long getFatherModuleId() {
+        return fatherModuleId;
     }
 
-    public void setFatherModule(String fatherModule) {
-        this.fatherModule = fatherModule;
+    public void setFatherModuleId(long fatherModuleId) {
+        this.fatherModuleId = fatherModuleId;
     }
 
     public String getModuleType() {
@@ -66,20 +69,20 @@ public class Module {
         this.moduleType = moduleType;
     }
 
-    public long getCreateId() {
-        return createId;
+    public String getCreatedBy() {
+        return createdBy;
     }
 
-    public void setCreateId(long createId) {
-        this.createId = createId;
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
     }
 
-    public String getUpdateName() {
-        return updateName;
+    public String getUpdatedBy() {
+        return updatedBy;
     }
 
-    public void setUpdateName(String updateName) {
-        this.updateName = updateName;
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy;
     }
 
     public long getCreateAt() {
@@ -98,8 +101,16 @@ public class Module {
         this.updateAt = updateAt;
     }
 
+    public List<Module> getModules() {
+        return modules;
+    }
+
+    public void setModules(List<Module> modules) {
+        this.modules = modules;
+    }
+
     @Override
     public String toString() {
-        return "Module{" + "id=" + id + ", serialId='" + serialId + '\'' + ", moduleName='" + moduleName + '\'' + ", moduleUrl='" + moduleUrl + '\'' + ", fatherModule='" + fatherModule + '\'' + ", moduleType='" + moduleType + '\'' + ", createId=" + createId + ", updateName='" + updateName + '\'' + ", createAt=" + createAt + ", updateAt=" + updateAt + '}';
+        return "Module{" + "id=" + id + ", serialId='" + serialId + '\'' + ", moduleName='" + moduleName + '\'' + ", moduleUrl='" + moduleUrl + '\'' + ", fatherModuleId=" + fatherModuleId + ", moduleType='" + moduleType + '\'' + ", createdBy='" + createdBy + '\'' + ", updatedBy='" + updatedBy + '\'' + ", createAt=" + createAt + ", updateAt=" + updateAt + ", modules=" + modules + '}';
     }
 }
