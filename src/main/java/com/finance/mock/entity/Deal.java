@@ -10,6 +10,7 @@ import java.math.BigDecimal;
  */
 public class Deal {
     private long id;
+    private String serialId;
     private long userID;
     private long compactId;
     private BigDecimal investment;
@@ -17,6 +18,14 @@ public class Deal {
     private String dealingType;
     private long createdAt;
     private long updatedAt;
+
+    public String getSerialId() {
+        return serialId;
+    }
+
+    public void setSerialId(String serialId) {
+        this.serialId = serialId;
+    }
 
     public long getId() {
         return id;
@@ -84,6 +93,16 @@ public class Deal {
 
     @Override
     public String toString() {
-        return "Deal{" + "id=" + id + ", userID=" + userID + ", compactId=" + compactId + ", investment=" + investment + ", profit=" + profit + ", dealingType='" + dealingType + '\'' + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + '}';
+        return "Deal{" +
+                "id=" + id +
+                ", serialId='" + serialId + '\'' +
+                ", userID=" + userID +
+                ", compactId=" + compactId +
+                ", investment=" + investment +
+                ", profit=" + profit +
+                ", dealingType='" + dealingType + '\'' +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                '}';
     }
 }

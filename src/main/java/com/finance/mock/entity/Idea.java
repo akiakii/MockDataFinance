@@ -8,22 +8,44 @@ package com.finance.mock.entity;
  */
 public class Idea {
     private long id;
+    private String serialId;
     private long userId;
+    private String commitBy;
     private String content;
     private boolean status;
     private long createdAt;
     private long updatedAt;
+    private String replyContent;
 
     @Override
     public String toString() {
         return "Idea{" +
                 "id=" + id +
+                ", serialId='" + serialId + '\'' +
                 ", userId=" + userId +
+                ", commitBy='" + commitBy + '\'' +
                 ", content='" + content + '\'' +
                 ", status=" + status +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
-                '}'+"\n";
+                ", replyContent='" + replyContent + '\'' +
+                '}';
+    }
+
+    public String getReplyContent() {
+        return replyContent;
+    }
+
+    public void setReplyContent(String replyContent) {
+        this.replyContent = replyContent;
+    }
+
+    public String getSerialId() {
+        return serialId;
+    }
+
+    public void setSerialId(String serialId) {
+        this.serialId = serialId;
     }
 
     public long getId() {
@@ -56,6 +78,14 @@ public class Idea {
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    public String getCommitBy() {
+        return commitBy;
+    }
+
+    public void setCommitBy(String commitBy) {
+        this.commitBy = commitBy;
     }
 
     public long getCreatedAt() {

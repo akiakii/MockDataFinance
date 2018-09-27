@@ -1,7 +1,5 @@
 package com.finance.mock.entity;
 
-import javax.xml.soap.Text;
-
 /**
  * @Author: 快乐水 青柠可乐
  * @Description:
@@ -15,9 +13,12 @@ public class Message {
 
     private String tittle;
     private String content;
-    private String type;
+    private int status;
 
     private boolean isRead;
+    private String created_by;
+    private String updated_by;
+    private long sendAt;
     private long createdAt;
     private long updatedAt;
 
@@ -29,11 +30,14 @@ public class Message {
                 ", managerId=" + managerId +
                 ", tittle='" + tittle + '\'' +
                 ", content='" + content + '\'' +
-                ", type='" + type + '\'' +
+                ", status=" + status +
                 ", isRead=" + isRead +
+                ", created_by='" + created_by + '\'' +
+                ", updated_by='" + updated_by + '\'' +
+                ", sendAt=" + sendAt +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
-                '}'+"\n";
+                '}';
     }
 
     public long getId() {
@@ -76,12 +80,12 @@ public class Message {
         this.content = content;
     }
 
-    public String getType() {
-        return type;
+    public int getStatus() {
+        return status;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     public boolean isRead() {
@@ -90,6 +94,30 @@ public class Message {
 
     public void setRead(boolean read) {
         isRead = read;
+    }
+
+    public String getCreated_by() {
+        return created_by;
+    }
+
+    public void setCreated_by(String created_by) {
+        this.created_by = created_by;
+    }
+
+    public String getUpdated_by() {
+        return updated_by;
+    }
+
+    public void setUpdated_by(String updated_by) {
+        this.updated_by = updated_by;
+    }
+
+    public long getSendAt() {
+        return sendAt;
+    }
+
+    public void setSendAt(long sendAt) {
+        this.sendAt = sendAt;
     }
 
     public long getCreatedAt() {

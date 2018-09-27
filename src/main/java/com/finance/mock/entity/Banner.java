@@ -11,8 +11,8 @@ public class Banner {
     private String serialId;
     private String title;
     private String key;
-    private short intervalTime;
-    private String creator;
+    private int intervalTime;
+    private String createdBy;
     private String updatedBy;
     private boolean status;
     private long createAt;
@@ -50,20 +50,20 @@ public class Banner {
         this.key = key;
     }
 
-    public short getIntervalTime() {
+    public int getIntervalTime() {
         return intervalTime;
     }
 
-    public void setIntervalTime(short intervalTime) {
+    public void setIntervalTime(int intervalTime) {
         this.intervalTime = intervalTime;
     }
 
-    public String getCreator() {
-        return creator;
+    public String getCreatedBy() {
+        return createdBy;
     }
 
-    public void setCreator(String creator) {
-        this.creator = creator;
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
     }
 
     public String getUpdatedBy() {
@@ -100,6 +100,17 @@ public class Banner {
 
     @Override
     public String toString() {
-        return "Banner{" + "id=" + id + ", serialId='" + serialId + '\'' + ", title='" + title + '\'' + ", key='" + key + '\'' + ", intervalTime=" + intervalTime + ", creator='" + creator + '\'' + ", updatedBy='" + updatedBy + '\'' + ", status=" + status + ", createAt=" + createAt + ", updateAt=" + updateAt + '}';
+        return "Banner{" +
+                "id=" + id +
+                ", serialId='" + serialId + '\'' +
+                ", title='" + title + '\'' +
+                ", key='" + key + '\'' +
+                ", intervalTime=" + intervalTime +
+                ", createdBy='" + createdBy + '\'' +
+                ", updatedBy='" + updatedBy + '\'' +
+                ", status=" + status +
+                ", createAt=" + createAt +
+                ", updateAt=" + updateAt +
+                '}';
     }
 }

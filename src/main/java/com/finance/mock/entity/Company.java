@@ -10,7 +10,7 @@ import java.math.BigDecimal;
  */
 public class Company {
     private long id;
-    private long debtId;
+    private String serialId;
     private String companyName;
     private String debtPerson;
     private String phoneNumber;
@@ -18,8 +18,8 @@ public class Company {
     private BigDecimal borrowMoney;
     private int borrowingCycle;
     private long repaymentDate;
-    private long unmatchMoney;
-    private boolean status;
+    private BigDecimal unmatchMoney;
+    private int status;
     private long createdAt;
     private long updatedAt;
 
@@ -27,7 +27,7 @@ public class Company {
     public String toString() {
         return "Company{" +
                 "id=" + id +
-                ", debtId=" + debtId +
+                ", serialId='" + serialId + '\'' +
                 ", companyName='" + companyName + '\'' +
                 ", debtPerson='" + debtPerson + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
@@ -39,7 +39,7 @@ public class Company {
                 ", status=" + status +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
-                '}'+"\n";
+                '}';
     }
 
     public long getId() {
@@ -50,12 +50,12 @@ public class Company {
         this.id = id;
     }
 
-    public long getDebtId() {
-        return debtId;
+    public String getSerialId() {
+        return serialId;
     }
 
-    public void setDebtId(long debtId) {
-        this.debtId = debtId;
+    public void setSerialId(String serialId) {
+        this.serialId = serialId;
     }
 
     public String getCompanyName() {
@@ -114,19 +114,19 @@ public class Company {
         this.repaymentDate = repaymentDate;
     }
 
-    public long getUnmatchMoney() {
+    public BigDecimal getUnmatchMoney() {
         return unmatchMoney;
     }
 
-    public void setUnmatchMoney(long unmatchMoney) {
+    public void setUnmatchMoney(BigDecimal unmatchMoney) {
         this.unmatchMoney = unmatchMoney;
     }
 
-    public boolean isStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 

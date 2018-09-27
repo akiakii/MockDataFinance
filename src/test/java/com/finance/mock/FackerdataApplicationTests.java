@@ -12,5 +12,4 @@ public class FackerdataApplicationTests {
 	@Test
 	public void contextLoads() {
 	}
-
 }
