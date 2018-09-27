@@ -1,5 +1,7 @@
 package com.finance.mock.entity;
 
+import java.math.BigDecimal;
+
 /**
  * @Author: huangdongjiang
  * @Description: 快乐水 原味可乐
@@ -23,6 +25,28 @@ public class Compacting {
 	private long createdAt;
 	//更新时间戳
 	private long updatedAt;
+
+	//投资金额
+	private BigDecimal amount;
+	//理财期限
+    private int financialTime;
+
+
+	public BigDecimal getAmount() {
+		return amount;
+	}
+
+	public void setAmount(BigDecimal amount) {
+		this.amount = amount;
+	}
+
+	public int getFinancialTime() {
+		return financialTime;
+	}
+
+	public void setFinancialTime(int financialTime) {
+		this.financialTime = financialTime;
+	}
 
 	public long getId() {
 		return id;

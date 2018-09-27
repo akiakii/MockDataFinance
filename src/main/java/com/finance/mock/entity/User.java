@@ -1,10 +1,7 @@
 package com.finance.mock.entity;
 
 import java.math.BigDecimal;
-<<<<<<< HEAD
 import java.util.List;
-=======
->>>>>>> upstream/master
 
 public class User {
     private long id;
