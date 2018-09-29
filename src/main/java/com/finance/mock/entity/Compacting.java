@@ -21,31 +21,27 @@ public class Compacting {
 	private long expiredTime;
 	//合同状态0表示首次 1表示续投
 	private int status;
-	//创建时间戳
+	private BigDecimal amount;
+	private BigDecimal profit;
+	private int financialTime;
 	private long createdAt;
-	//更新时间戳
 	private long updatedAt;
 
-	//投资金额
-	private BigDecimal amount;
-	//理财期限
-    private int financialTime;
-
-
-	public BigDecimal getAmount() {
-		return amount;
-	}
-
-	public void setAmount(BigDecimal amount) {
-		this.amount = amount;
-	}
-
-	public int getFinancialTime() {
-		return financialTime;
-	}
-
-	public void setFinancialTime(int financialTime) {
-		this.financialTime = financialTime;
+	@Override
+	public String toString() {
+		return "Compacting{" +
+				"id=" + id +
+				", serialId='" + serialId + '\'' +
+				", userId=" + userId +
+				", productId=" + productId +
+				", expiredTime=" + expiredTime +
+				", status=" + status +
+				", amount=" + amount +
+				", profit=" + profit +
+				", financialTime=" + financialTime +
+				", createdAt=" + createdAt +
+				", updatedAt=" + updatedAt +
+				'}'+"\n";
 	}
 
 	public long getId() {
@@ -94,6 +90,30 @@ public class Compacting {
 
 	public void setStatus(int status) {
 		this.status = status;
+	}
+
+	public BigDecimal getAmount() {
+		return amount;
+	}
+
+	public void setAmount(BigDecimal amount) {
+		this.amount = amount;
+	}
+
+	public BigDecimal getProfit() {
+		return profit;
+	}
+
+	public void setProfit(BigDecimal profit) {
+		this.profit = profit;
+	}
+
+	public int getFinancialTime() {
+		return financialTime;
+	}
+
+	public void setFinancialTime(int financialTime) {
+		this.financialTime = financialTime;
 	}
 
 	public long getCreatedAt() {
