@@ -133,6 +133,27 @@ public class My {
     }
 
 
+
+
+    @ApiOperation(value = "补-我的———消息中心——点击消息中心 ",notes = "获得消息中心的List")
+    @RequestMapping(value = "/messages/{id}",method =RequestMethod.GET)
+    private Result<List<Message>> messages(@PathVariable("id")long id){
+        List<Message> messages;
+        if (id==1||id==2){
+            if(id==1){
+                messages=userBean.getUser1Message();
+            }else {
+                messages=userBean.getUser2Messages();
+            }
+        }else {
+            messages=null;
+        }
+        return new Result<>(true,messages);
+    }
+
+
+
+
     @ApiOperation(value = "26我的———我的理财——-点击获得全部的交易记录的理财产品 ",notes = "获得交易记录的理财产品")
     @RequestMapping(value = "/investment/{id}",method =RequestMethod.GET)
     private Result<List<DealAndProduct>> myInvestment(@PathVariable("id") long id){
@@ -232,7 +253,5 @@ public class My {
     private Result myIdea(@PathVariable("id") long id,@RequestParam(value = "content",required = true) String content){
         return new Result(true);
     }
-
-
 
 }

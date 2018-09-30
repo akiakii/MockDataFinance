@@ -28,12 +28,9 @@ public class Result<T> {
      */
     private int code;
 
-    public Result() {
-    }
+    private int unread;
 
-    public Result(boolean status, String Msg) {
-        this.status = status;
-        this.msg = Msg;
+    public Result() {
     }
 
     /**
@@ -44,11 +41,24 @@ public class Result<T> {
       * @param: [status, data]
       * @return:
      */
+
     public Result(boolean status, T data) {
         this.status = status;
         this.data = data;
     }
 
+    /**
+ *
+ * @Description:
+ * @auther: 快乐水 青柠可乐
+ * @date: 下午7:01 2018/9/22
+ * @param: [status]
+ * @return:
+ *
+ */
+    public Result(boolean status){
+        this.status =status;
+    }
     /**
      *
      * @Description:
@@ -57,11 +67,22 @@ public class Result<T> {
      * @param: [status, Msg, Code]
      * @return:
      */
-    public Result(boolean status, String Msg, int Code) {
+    public Result(boolean status, String msg, int code) {
         this.status = status;
-        this.msg = Msg;
-        this.code = Code;
+        this.msg = msg;
+        this.code = code;
     }
+
+    public Result(boolean status,String msg){
+        this.status=status;
+        this.msg=getMsg();
+    }
+
+    private Result(boolean status,int unread){
+        this.status=status;
+        this.unread=unread;
+    }
+
 
     public boolean isStatus() {
         return status;
