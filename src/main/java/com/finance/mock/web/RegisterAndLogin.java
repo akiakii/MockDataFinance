@@ -30,7 +30,7 @@ public class RegisterAndLogin {
 
     @ApiOperation(value ="2:注册页面——验证验证码——下一步" ,notes = "下一步(校验验证码)")
     @RequestMapping(value = "/register/msgcode",method = RequestMethod.POST,produces =  "application/json;charset=UTF-8")
-    public Result registerPostNext(@RequestParam(value ="msgCode" ,required = true)String msgCode ){
+    public Result registerPostNext(@RequestParam(value ="msgCode")String msgCode,@RequestParam(value = "phoneNumber")String phoneNumber,@RequestParam(value = "picCode",required = false)String picCode ){
         return new Result(true);
     }
 
@@ -58,21 +58,21 @@ public class RegisterAndLogin {
     }
 
     @ApiOperation(value ="5：忘记密码——找回密码——获取验证码" ,notes = "获取验证码")
-    @RequestMapping(value = "reset/msgcode/{id}",method = RequestMethod.GET,produces =  "application/json;charset=UTF-8")
-    public Result resetGetMsgcode(@RequestParam(value = "phoneNumber",required = true) String phoneNumber, @PathVariable("id") long id){
+    @RequestMapping(value = "reset/msgcode",method = RequestMethod.GET,produces =  "application/json;charset=UTF-8")
+    public Result resetGetMsgcode(@RequestParam(value = "phoneNumber",required = true) String phoneNumber){
         return new Result(true);
     }
 
 
     @ApiOperation(value ="6：忘记密码——找回密码——获取验证码——下一步（校验验证码）" ,notes = "下一步，校验验证码")
-    @RequestMapping(value = "reset/msgcode/{id}",method = RequestMethod.POST,produces =  "application/json;charset=UTF-8")
-    public Result resetPostMsgcode(@RequestParam(value = "phoneNumber" ,required = true) String phoneNumber, @PathVariable("id") long id){
+    @RequestMapping(value = "reset/msgcode",method = RequestMethod.POST,produces =  "application/json;charset=UTF-8")
+    public Result resetPostMsgcode(@RequestParam(value = "phoneNumber" ,required = true) String phoneNumber){
         return new Result(true);
     }
 
     @ApiOperation(value ="7：忘记密码——找回密码——获取验证码——下一步——确认（提交新密码）" ,notes = "确认新的密码，并且提交")
-    @RequestMapping(value = "reset/password/{id}",method = RequestMethod.POST,produces =  "application/json;charset=UTF-8")
-    public Result resetPostPassword(@RequestParam(value ="phoneNumber" ,required = true) String phoneNumber, @RequestParam(value = "firstPassword",required = true) String firstPassword, @RequestParam(value ="secondPassword" ,required = true) String secondPassword, @PathVariable("id") long id){
+    @RequestMapping(value = "reset/password",method = RequestMethod.POST,produces =  "application/json;charset=UTF-8")
+    public Result resetPostPassword(@RequestParam(value ="phoneNumber") String phoneNumber, @RequestParam(value = "firstPassword") String firstPassword, @RequestParam(value ="secondPassword") String secondPassword){
         return new Result(true);
     }
 

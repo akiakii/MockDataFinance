@@ -57,29 +57,33 @@ public class My {
 
     @ApiOperation(value ="16:我的——个人信息--实名认证" ,notes = "实名认证")
     @RequestMapping(value = "/info/identification/{id}",method = RequestMethod.POST,produces =  "application/json;charset=UTF-8")
-    public Result identification(String realName, @PathVariable("id")long id, @RequestParam(value ="idCard" ,required = true) long idCard, @RequestParam(value = "card",required = true) String card){
+    public Result identification(@RequestParam(value = "realName") String realName, @PathVariable("id")long id, @RequestParam(value ="idCard") long idCard, @RequestParam(value = "card") String card){
         return new Result(true);
 
     }
 
     @ApiOperation(value ="17:我的——个人信息——实名认证--卡号绑定（完成认证并绑定）" ,notes = "卡号绑定")
     @RequestMapping(value = "/info/identification/card/{id}",method = RequestMethod.POST,produces =  "application/json;charset=UTF-8")
-    public Result identificationCard(@RequestParam(value ="cardType" ,required = true) String cardType,@RequestParam(value ="phoneNumber" ,required = true) String phoneNumber,@PathVariable("id")long id){
+    public Result identificationCard(@RequestParam(value ="cardType") String cardType, @RequestParam(value ="phoneNumber") String phoneNumber, @PathVariable("id")long id){
         return new Result(true);
     }
 
-    @ApiOperation(value ="18：我的——个人信息——获取验证码" ,notes = "获取验证码")
+    @ApiOperation(value ="18：我的——个人信息——实名认证--获取验证码" ,notes = "获取验证码")
     @RequestMapping(value = "/info/identification/card/msgcode/{id}",method = RequestMethod.GET,produces =  "application/json;charset=UTF-8")
-    public Result cardMsgcode(@PathVariable("id")long id,@RequestParam(value = "phoneNumber" ,required = true) String phoneNumber){
+    public Result cardMsgcode(@PathVariable("id")long id,@RequestParam(value = "phoneNumber") String phoneNumber){
         return new Result(true);
     }
 
-    @ApiOperation(value ="19：我的——个人信息——获取验证码——下一步（验证验证码）" ,notes = "验证验证码")
+    @ApiOperation(value ="19：我的——个人信息——实名认真--获取验证码——下一步（验证验证码）" ,notes = "验证验证码")
     @RequestMapping(value = "/info/identification/card/verification/{id}",method = RequestMethod.POST,produces =  "application/json;charset=UTF-8")
-    public Result cardVertification(@PathVariable("id")long id,@RequestParam(value = "phoneNumber",required = true) String phoneNumber,@RequestParam(value ="msgCode" ,required = true) String msgCode){
+    public Result cardVertification(@PathVariable("id")long id,@RequestParam(value = "phoneNumber") String phoneNumber, @RequestParam(value ="msgCode") String msgCode,
+                                    @RequestParam(value = "idCard") String idCard,@RequestParam(value = "card")String card,@RequestParam(value = "realName")String realName,
+                                    @RequestParam(value = "cardType")String cardType
+                                    ){
         return new Result(true);
     }
 
+    //这里不用给接口，点击个人信息的时候，就已经给了手机号码了
     @ApiOperation(value = "20我的——个人信息--更换手机——点击更换手机",notes = "显示用户的手机")
     @RequestMapping(value = "/info/phone/{id}",method = RequestMethod.GET,produces =  "application/json;charset=UTF-8")
     private Result<User> phoneChange (@PathVariable("id") long id){
@@ -108,21 +112,21 @@ public class My {
 
     @ApiOperation(value = "22.1我的——个人信息--更换手机——获取验证码——下一步——绑定新手机——获取验证码",notes = "获取新手机验证码")
     @RequestMapping(value = "/info/phone/new/msgcode/{id}",method = RequestMethod.GET)
-    private Result phoneNewMsgcode(@PathVariable("id") long id,@RequestParam(value = "newPhoneNumber",required = true) String newPhoneNumber){
+    private Result phoneNewMsgcode(@PathVariable("id") long id,@RequestParam(value = "newPhoneNumber") String newPhoneNumber){
         return new Result(true);
 
     }
 
     @ApiOperation(value = "23我的——个人信息--更换手机——获取验证码——下一步——绑定新手机——(下一步)校验验证码",notes = "校验验证码")
     @RequestMapping(value = "/info/phone/new/msgcode/verification/{id}",method =RequestMethod.POST)
-    private Result phoneNewVerification(@PathVariable("id") long id ,@RequestParam(value = "msgCode",required = true) String msgCode){
+    private Result phoneNewVerification(@PathVariable("id") long id ,@RequestParam(value = "msgCode") String msgCode,@RequestParam(value = "phoneNumber")String phoneNumber){
         return new Result(true);
     }
 
 
     @ApiOperation(value = "24我的———设置——--修改密码",notes = "修改密码")
     @RequestMapping(value = "/setting/password/{id}",method =RequestMethod.POST)
-    private Result passwordSetting(@PathVariable("id") long id,@RequestParam(value ="oldPassword" ,required = true) String oldPassword,@RequestParam(value ="newPassword" ,required = true) String newPassword,@RequestParam(value = "comfirmPassword",required = true) String comfirmPassword){
+    private Result passwordSetting(@PathVariable("id") long id, @RequestParam(value ="oldPassword" ,required = true) String oldPassword, @RequestParam(value ="newPassword") String newPassword, @RequestParam(value = "comfirmPassword") String comfirmPassword){
         return new Result(true,"修改密码成功");
     }
 
@@ -156,26 +160,26 @@ public class My {
 
     @ApiOperation(value = "26我的———我的理财——-点击获得全部的交易记录的理财产品 ",notes = "获得交易记录的理财产品")
     @RequestMapping(value = "/investment/{id}",method =RequestMethod.GET)
-    private Result<List<DealAndProduct>> myInvestment(@PathVariable("id") long id){
-        List<DealAndProduct> dps;
+    private Result myInvestment(@PathVariable("id") long id){
+        List<Compacting> compactings;
         if(id==1){
-            dps=userBean.getUser1Deals();
-            return new Result<>(true,dps);
+            compactings=userBean.getUser1Compacting();
+            return new Result<>(true,compactings);
         }
-        return new Result<List<DealAndProduct>>(true);
+        return new Result(true);
 
     }
 
     @ApiOperation(value = "27我的———我的理财——-预约续投",notes = "预约续投")
     @RequestMapping(value = "/investment/book/{id},compactingId={compactingId}",method =RequestMethod.GET)
-    private Result investmentBook( @PathVariable("id") long id, @RequestParam(value = "compactingId",required = true) long compactingId){
+    private Result investmentBook( @PathVariable("id") long id, @RequestParam(value = "compactingId") long compactingId){
         return new Result(true,"预约续投成功");
     }
 
 
     @ApiOperation(value = "28我的———我的理财——-取消续投",notes = "取消续投")
     @RequestMapping(value = "/investment/debook/{id},compactingId={compactingId}",method =RequestMethod.GET)
-    private Result investmentDebook(@PathVariable("id") long id, @RequestParam(value ="compactingId" ,required = true) long compactingId){
+    private Result investmentDebook(@PathVariable("id") long id, @RequestParam(value ="compactingId") long compactingId){
         return new Result(true,"取消续投成功");
     }
 
@@ -222,7 +226,7 @@ public class My {
     //
     @ApiOperation(value = "32我的———银行卡——-添加银行卡——下一步(提交卡号) ",notes = "提交添加的银行卡的卡号")
     @RequestMapping(value = "/bank/card/{id}",method =RequestMethod.POST)
-    private Result bankCard(@PathVariable("id")long id, @RequestParam(value = "card",required = true)  String card){
+    private Result bankCard(@PathVariable("id")long id, @RequestParam(value = "cardId")  long cardId){
         return new Result(true);
     }
 
@@ -236,21 +240,21 @@ public class My {
     //
     @ApiOperation(value = "35我的———银行卡——-解除绑定——确认解除绑定——获取验证码",notes = "获取验证码")
     @RequestMapping(value = "/bank/card/msgcode/{id}",method =RequestMethod.GET)
-    private Result bankMsgcode(@PathVariable("id") long id,@RequestParam(value = "phoneNumber",required = true) String phoneNumber){
+    private Result bankMsgcode(@PathVariable("id") long id,@RequestParam(value = "phoneNumber") String phoneNumber){
         return new Result(true);
     }
 
 
     @ApiOperation(value = "36我的———银行卡——-解除绑定——确认解除绑定——获取验证码——校验",notes = "校验验证码")
     @RequestMapping(value = "/bank/card/msgcode/{id}",method =RequestMethod.DELETE)
-    private Result bankMsgcodeVertify( @PathVariable("id") long id,@RequestParam(value = "msgCode",required = true) String msgCode,@RequestParam(value = "card",required = true) String card){
+    private Result bankMsgcodeVertify(@PathVariable("id") long id, @RequestParam(value = "msgCode") String msgCode, @RequestParam(value = "card") String card){
         return new Result(true);
     }
 
 
     @ApiOperation(value = "37我的———意见反馈——提交",notes = "提交意见")
     @RequestMapping(value = "/idea/{id}",method =RequestMethod.POST)
-    private Result myIdea(@PathVariable("id") long id,@RequestParam(value = "content",required = true) String content){
+    private Result myIdea(@PathVariable("id") long id,@RequestParam(value = "content") String content){
         return new Result(true);
     }
 
