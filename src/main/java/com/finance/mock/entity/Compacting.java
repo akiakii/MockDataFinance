@@ -24,8 +24,11 @@ public class Compacting {
 	private BigDecimal amount;
 	private BigDecimal profit;
 	private int financialTime;
+	private User user;
+	private Product product;
 	private long createdAt;
 	private long updatedAt;
+
 
 	@Override
 	public String toString() {
@@ -39,9 +42,27 @@ public class Compacting {
 				", amount=" + amount +
 				", profit=" + profit +
 				", financialTime=" + financialTime +
+				", user=" + user +
+				", product=" + product +
 				", createdAt=" + createdAt +
 				", updatedAt=" + updatedAt +
 				'}'+"\n";
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
 	public long getId() {

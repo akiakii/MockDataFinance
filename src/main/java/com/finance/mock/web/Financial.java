@@ -27,22 +27,25 @@ public class Financial {
     UserBean userBean;
 
     @ApiOperation(value ="10：理财页面——点击——获得所有产品的列表" ,notes = "点击理财，弹出所有理财产品")
-    @RequestMapping(value = "/products/{id}",method = RequestMethod.GET,produces =  "application/json;charset=UTF-8")
-    public Result<List<Product>> getProducts(@PathVariable("id") long id){
-
-        int i=1;
+    @RequestMapping(value = "/products",method = RequestMethod.GET,produces =  "application/json;charset=UTF-8")
+    public Result<List<Product>> getProducts(@RequestParam(value = "id",required = false) Integer id) {
         Product product1;
-        if (id==i){
-            product1=null;
-        }else {
-            product1=userBean.getProduct1();
-        }
-        Product product2=userBean.getProduct2();
-        List<Product> products=new ArrayList<>();
-        products.add(product1);
+        Product product2 = userBean.getProduct2();
+        List<Product> products = new ArrayList<>();
         products.add(product2);
-        return new Result<>(true,products);
-
+        if (id == null) {
+            product1 = userBean.getProduct1();
+            products.add(product1);
+            return new Result<>(true, products);
+        } else {
+            if (id == 1) {
+                return new Result<>(true, products);
+            } else {
+                product1 = userBean.getProduct1();
+                products.add(product1);
+                return new Result<>(true, products);
+            }
+        }
     }
     /**
      *
@@ -55,8 +58,8 @@ public class Financial {
      */
     @ApiOperation(value ="11：理财页面——点击——获得所有产品的列表——点击单个产品——点击投资记录" ,notes = "某个产品的交易记录")
     @RequestMapping(value = "/products/records/{id}",method = RequestMethod.GET,produces =  "application/json;charset=UTF-8")
-    public Result<List<CompactAndProduct>> productsRecords
-    (@PathVariable("id") long id, @RequestParam(value = "productId",required = true) long productId){
+    public Result productsRecords
+    (@PathVariable(value = "id") long id, @RequestParam(value = "productId") long productId){
         int i=1,j=2;
         if(productId==i||productId==j){
             if(productId==i){
@@ -80,10 +83,10 @@ public class Financial {
     }
 
     //
-    @ApiOperation(value ="13:理财页面——点击——获得所有产品的列表——立即购买——确认购买" ,notes = "确认购买（提交金额和选择支付方式）")
+    @ApiOperation(value ="13:理财页面——点击——获得所有产品的列表——立即购买——确认购买" ,notes = "确认购买（提交金额和选择支付方式）校验金额")
     @RequestMapping(value = "/products/determination/{id}",method = RequestMethod.POST,produces =  "application/json;charset=UTF-8")
     public Result productsDetermination
-    (@PathVariable("id") long userId, @RequestParam(value ="productId" ,required = true) long productId, @RequestParam(value ="moneyAmount" ,required = true) BigDecimal moneyAmount,@RequestParam(value = "paymentWay",required = true) String paymentWay){
+    (@PathVariable("id") long userId, @RequestParam(value ="productId" ) long productId, @RequestParam(value ="moneyAmount" ) BigDecimal moneyAmount,@RequestParam(value = "paymentWay") String paymentWay){
         return new Result(true);
     }
 
@@ -96,7 +99,7 @@ public class Financial {
 
     @ApiOperation(value = "14.1:理财页面——点击——获得某产品——确认购买——确认支付（校验验证码）)",notes = "确认支付，校验验证码")
     @RequestMapping(value = "/products/payment/{id}",method = RequestMethod.POST)
-    public Result productPayment(@PathVariable("id")long id,@RequestParam(value ="phoneNumber" ,required = true) String phoneNumber,@RequestParam(value ="msgcode" ,required = true) String msgcode){
+    public Result productPayment(@PathVariable("id")long id, @RequestParam(value ="phoneNumber") String phoneNumber, @RequestParam(value ="msgcode") String msgcode){
         return new Result(true);
     }
 

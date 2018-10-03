@@ -31,7 +31,7 @@ public class UserHome {
 
     @ApiOperation(value ="8：首页-点击首页-调用第一个接口——banner图" ,notes = "首页第一个接口：获取banner图")
     @RequestMapping(value = "/home/banner/{id}",method = RequestMethod.GET,produces =  "application/json;charset=UTF-8")
-    public Result<List<Banner>> homeGetBanner(@PathVariable("id") long id){
+    public Result<List<Banner>> homeGetBanner(@PathVariable(value = "id" ,required = false) long id){
        Banner banner1=userBean.getBanner1();
        Banner banner2=userBean.getBanner2();
        List<Banner> banners=new ArrayList<>();
@@ -41,8 +41,8 @@ public class UserHome {
     }
 
     @ApiOperation(value ="9：首页-点击首页-调用第二个接口——鼎力推荐" ,notes = "首页第二个接口：鼎力推荐")
-    @RequestMapping(value = "/home/recommandation/{id}",method = RequestMethod.GET,produces =  "application/json;charset=UTF-8")
-    public Result<Product> homeGetRecommandation(@PathVariable("id") long id){
+    @RequestMapping(value = "/home/recommendation/{id}",method = RequestMethod.GET,produces =  "application/json;charset=UTF-8")
+    public Result<Product> homeGetRecommandation(@PathVariable(value = "id" ,required = false) long id){
         User user;
         int i=1;
         int j=2;
