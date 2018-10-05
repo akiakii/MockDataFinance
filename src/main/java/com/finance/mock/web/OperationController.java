@@ -336,20 +336,20 @@ public class OperationController {
 
 		Message message = new Message();
 		message.setId(1);
-		message.setTittle("六一欢聚，孩童快乐！");
+		message.setTitle("六一欢聚，孩童快乐！");
         message.setCreated_by("admin");
 		message.setCreatedAt(new Date().getTime());
-        message.setUpdated_by("admin");
+        message.setUpdatedBy("admin");
         message.setUpdatedAt(new Date().getTime());
         message.setStatus(10);//10推送，20已推送，30已取消
 		message.setSendAt(new Date().getTime());
 
 		Message message1 = new Message();
 		message1.setId(2);
-		message1.setTittle("版本更新通知");
+		message1.setTitle("版本更新通知");
 		message1.setCreated_by("admin");
 		message1.setCreatedAt(new Date().getTime());
-		message1.setUpdated_by("admin");
+		message1.setUpdatedBy("admin");
 		message1.setUpdatedAt(new Date().getTime());
 		message1.setStatus(20);//10推送，20已推送，30已取消
 		message1.setSendAt(new Date().getTime());
@@ -382,10 +382,10 @@ public class OperationController {
 									  int status, Long sendAt) {
 		Message message = new Message();
 		message.setId(1);
-		message.setTittle("六一欢聚，孩童快乐！");
+		message.setTitle("六一欢聚，孩童快乐！");
 		message.setCreated_by("admin");
 		message.setCreatedAt(new Date().getTime());
-		message.setUpdated_by("admin");
+		message.setUpdatedBy("admin");
 		message.setUpdatedAt(new Date().getTime());
 		message.setStatus(10);//10推送，20已推送，30已取消
 		message.setSendAt(new Date().getTime());

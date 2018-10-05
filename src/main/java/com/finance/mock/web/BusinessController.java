@@ -46,7 +46,7 @@ public class BusinessController {
 		user.setBalance(new BigDecimal(20000.00));
         user.setProfit(new BigDecimal(24.93));
         user.setCreatedAt(1537582046000L);
-        user.setLock(true);
+        user.setLocked(true);
 
 		User user2 = new User();
 		user2.setId(2);
@@ -57,7 +57,7 @@ public class BusinessController {
 		user2.setBalance(new BigDecimal(0.00));
 		user2.setProfit(new BigDecimal(24.00));
 		user2.setCreatedAt(1537582046000L);
-		user2.setLock(false);
+		user2.setLocked(false);
 		List<User> userList = new ArrayList<>();
 		userList.add(user);
 		userList.add(user2);

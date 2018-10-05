@@ -230,7 +230,7 @@ public class UserBean {
         message1.setManagerId(1);
         message1.setTitle("欢迎");
         message1.setContent("感谢你");
-        message1.setType("20");
+        message1.setStatus(20);
         message1.setRead(false);
         message1.setSendAt(0);
 
@@ -239,7 +239,7 @@ public class UserBean {
         message2.setManagerId(1);
         message2.setTitle("建议");
         message2.setContent("买新手礼");
-        message2.setType("20");
+        message2.setStatus(20);
         message2.setRead(false);
         message2.setSendAt(0);
 
@@ -261,7 +261,7 @@ public class UserBean {
         message1.setManagerId(1);
         message1.setTitle("欢迎");
         message1.setContent("感谢你");
-        message1.setType("20");
+        message1.setStatus(20);
         message1.setRead(false);
         message1.setSendAt(0);
 
@@ -270,7 +270,7 @@ public class UserBean {
         message2.setManagerId(1);
         message2.setTitle("建议");
         message2.setContent("买新手礼");
-        message2.setType("20");
+        message2.setStatus(20);
         message2.setRead(false);
         message2.setSendAt(0);
 
@@ -279,7 +279,7 @@ public class UserBean {
         message3.setManagerId(1);
         message3.setTitle("咨询");
         message3.setContent("您为什么还不买");
-        message3.setType("20");
+        message3.setStatus(20);
         message3.setRead(false);
         message3.setSendAt(0);
 
