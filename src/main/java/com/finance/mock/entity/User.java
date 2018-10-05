@@ -10,7 +10,7 @@ public class User {
     private String idCard;
     private String realName;
 
-    private boolean isLock;
+    private boolean isLocked;
     private boolean isNoob;
 
     private String account;
@@ -27,27 +27,6 @@ public class User {
 
     private List<Bank> bankList;
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", serialId='" + serialId + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", idCard='" + idCard + '\'' +
-                ", realName='" + realName + '\'' +
-                ", isLock=" + isLock +
-                ", isNoob=" + isNoob +
-                ", account='" + account + '\'' +
-                ", password='" + password + '\'' +
-                ", salt='" + salt + '\'' +
-                ", balance=" + balance +
-                ", profit=" + profit +
-                ", picture='" + picture + '\'' +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
-                ", bankList=" + bankList +
-                '}';
-    }
 
     public long getId() {
         return id;
@@ -89,12 +68,12 @@ public class User {
         this.realName = realName;
     }
 
-    public boolean isLock() {
-        return isLock;
+    public boolean isLocked() {
+        return isLocked;
     }
 
-    public void setLock(boolean lock) {
-        isLock = lock;
+    public void setLocked(boolean locked) {
+        isLocked = locked;
     }
 
     public boolean isNoob() {

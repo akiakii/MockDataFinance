@@ -11,34 +11,18 @@ public class Message {
     private long userId;
     private long managerId;
 
-    private String tittle;
+    private String title;
     private String content;
     private int status;
 
     private boolean isRead;
-    private String created_by;
-    private String updated_by;
+    private String createdBy;
+    private String updatedBy;
     private long sendAt;
     private long createdAt;
     private long updatedAt;
 
-    @Override
-    public String toString() {
-        return "Message{" +
-                "id=" + id +
-                ", userId=" + userId +
-                ", managerId=" + managerId +
-                ", tittle='" + tittle + '\'' +
-                ", content='" + content + '\'' +
-                ", status=" + status +
-                ", isRead=" + isRead +
-                ", created_by='" + created_by + '\'' +
-                ", updated_by='" + updated_by + '\'' +
-                ", sendAt=" + sendAt +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
-                '}';
-    }
+
 
     public long getId() {
         return id;
@@ -64,12 +48,12 @@ public class Message {
         this.managerId = managerId;
     }
 
-    public String getTittle() {
-        return tittle;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTittle(String tittle) {
-        this.tittle = tittle;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getContent() {
@@ -97,19 +81,27 @@ public class Message {
     }
 
     public String getCreated_by() {
-        return created_by;
+        return createdBy;
     }
 
     public void setCreated_by(String created_by) {
-        this.created_by = created_by;
+        this.createdBy = created_by;
     }
 
-    public String getUpdated_by() {
-        return updated_by;
+    public String getCreatedBy() {
+        return createdBy;
     }
 
-    public void setUpdated_by(String updated_by) {
-        this.updated_by = updated_by;
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public String getUpdatedBy() {
+        return updatedBy;
+    }
+
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy;
     }
 
     public long getSendAt() {
